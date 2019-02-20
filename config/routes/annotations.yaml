@@ -1,0 +1,10 @@
+web_controllers:
+    resource: ../../src/Application/Web/Controller/
+    type: annotation
+    name_prefix: app_
+
+api_controllers:
+    resource: ../../src/Application/Api/Controller/
+    type: annotation
+    name_prefix: api_
+    prefix: /api

@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('app_product_new') }}">créer un nouveau produit</a>
+{% endblock %}

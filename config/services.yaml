@@ -1,0 +1,26 @@
+parameters:
+    locale: 'en'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{Kernel.php}'
+
+    App\Domain\QueryHandler\:
+        resource: '../src/Domain/QueryHandler/*'
+        public: true
+        tags: [messenger.message_handler]
+
+    App\Domain\CommandHandler\:
+        resource: '../src/Domain/CommandHandler/*'
+        public: true
+        tags: [messenger.message_handler]
+
+#    App\Domain\Repository\ProductRepositoryInterface: '@App\Infrastructure\Repository\InMemoryProducts'
+#    App\Domain\Repository\ProductRepositoryInterface: '@App\Infrastructure\Repository\DoctrineProducts'
+    App\Domain\Repository\ProductRepositoryInterface: '@App\Infrastructure\Repository\ApiProducts'
